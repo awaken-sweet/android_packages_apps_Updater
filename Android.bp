@@ -41,15 +41,24 @@ android_app {
         proguard_flags_files: ["proguard.flags"],
     },
 
-    required: ["privapp_whitelist_com.awaken.updater.xml"],
-
+    required: [
+        "privapp_whitelist_com.awaken.updater",
+        "default-permissions_com.awaken.updater"
+    ],
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_com.awaken.updater.xml",
-
+    name: "privapp_whitelist_com.awaken.updater",
     system_ext_specific: true,
-    src: "privapp_whitelist_com.awaken.updater.xml",
     sub_dir: "permissions",
+    src: "privapp_whitelist_com.awaken.updater.xml",
+    filename_from_src: true,
+}
 
+prebuilt_etc {
+    name: "default-permissions_com.awaken.updater",
+    system_ext_specific: true,
+    sub_dir: "default-permissions",
+    src: "default-permissions_com.awaken.updater.xml",
+    filename_from_src: true,
 }
